@@ -15,13 +15,19 @@ For support please use: http://support.notifica.re
   spec.author             = { "Notificare" => "info@notifica.re" }
   spec.source             = { :http => 'https://download.revealapp.com/RevealServer-29.zip' }
   spec.swift_version      = "5.3"
+  spec.cocoapods_version  = '>= 1.10.0'
 
   # Supported deployment targets
   spec.ios.deployment_target  = "10.0"
 
   spec.vendored_frameworks = "RevealServer/RevealServer.xcframework"
 
+  spec.requires_arc = false
+  spec.frameworks = "CoreGraphics", "CFNetwork", "QuartzCore"
+  spec.compiler_flags = "-ObjC"
+
   spec.xcconfig = {
+    "FRAMEWORK_SEARCH_PATHS": "$(inherited)",
     "LD_RUNPATH_SEARCH_PATHS": "$(inherited) @executable_path/Frameworks @loader_path/Frameworks"
   }
 
